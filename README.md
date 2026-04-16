@@ -132,7 +132,7 @@ cat /etc/group |tail -5
 
 
 
-## Implement a password policy to enforce expiration and complexity (e.g., passwords expire every 30 days).
+### Implement a password policy to enforce expiration and complexity (e.g., passwords expire every 30 days).
 
 ```
 sudo chage -M 30 Sarah
@@ -156,7 +156,7 @@ Objective: Configure automated backups for Sarah’s Apache server and Mike’s 
 
 ### Scenario:
 
-## Sarah is responsible for managing an Apache web server.
+### Sarah is responsible for managing an Apache web server.
 
 ```
 sudo apt install apache2 -y
@@ -215,7 +215,7 @@ tar --version
 
 
 
-## Mike is responsible for managing a Nginx web server. 
+### Mike is responsible for managing a Nginx web server. 
 
 ```
 sudo apt update
@@ -230,7 +230,7 @@ sudo systemctl start nginx
 
 <img width="975" height="592" alt="image" src="https://github.com/user-attachments/assets/12cd03c5-c8ec-4fa3-a2ea-ea479044496c" />
 
-# error prompting apache cron job is already running and so stopping the apache server
+### error prompting apache cron job is already running and so stopping the apache server
 
 ```
 nginx -v
@@ -259,7 +259,7 @@ Both servers require regular backups to a secure location for disaster recovery.
 
 Sarah and Mike need to automate backups for their respective web server configurations and document roots: 
 
-# Sarah: Backup the Apache configuration (/etc/httpd/) and document root (/var/www/html/).
+### Sarah: Backup the Apache configuration (/etc/httpd/) and document root (/var/www/html/).
 
 ```
 su - Sarah
@@ -289,14 +289,14 @@ tar -czvf /backup/apache/first_html.tar.gz /var/www/html/
 <img width="975" height="331" alt="image" src="https://github.com/user-attachments/assets/a1751c60-2e0d-475b-85fe-ee716fc7dd4e" />
 
 
-## cron job triggere for every 2 mins
+### cron job triggere for every 2 mins - so that backups can be tracked
 
 
 <img width="975" height="583" alt="image" src="https://github.com/user-attachments/assets/3be07bcc-7361-410f-9e69-f31a675106fa" />
 
 
 
-# Mike: Backup the Nginx configuration (/etc/nginx/) and document root (/usr/share/nginx/html/).
+### Mike: Backup the Nginx configuration (/etc/nginx/) and document root (/usr/share/nginx/html/).
 
 ```
 su - Mike
@@ -333,7 +333,7 @@ systemstl status nginx
 
 
 
-# Schedule the backups to run every Tuesday at 12:00 AM using cron jobs.
+### Schedule the backups to run every Tuesday at 12:00 AM using cron jobs - below is the code to be used
 
 ```
 # Tuesday at 12:00 AM  
@@ -350,11 +350,11 @@ Save the backups as compressed files in /backups/ with filenames including the s
 Verify the backup integrity after each run by listing the contents of the compressed file.
 
 
-### Expected Output:
+## Expected Output:
 
 Cron job configurations for Sarah and Mike.
 
-Backup files are created in the /backups/ directory.
+Backup files are created in the /backups/ directory - below screenshot is for 2 mins cron jobs
 
 <img width="975" height="903" alt="image" src="https://github.com/user-attachments/assets/7cc50342-e8aa-4497-ad87-bde6fab755d8" />
 
